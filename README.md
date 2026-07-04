@@ -1,4 +1,4 @@
-# cloud-itonami-9499
+# cloud-itonami-isic-9499
 
 Open Business Blueprint for **ISIC Rev.5 9499**: Activities of other membership organizations n.e.c..
 

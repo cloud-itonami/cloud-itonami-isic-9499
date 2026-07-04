@@ -2,7 +2,7 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-9499`
+- Repository: `cloud-itonami-isic-9499`
 - ISIC Rev.5: `9499`
 - Activity: activities of other membership organizations not elsewhere classified (e.g. civic/social clubs, consumer organizations, environmental advocacy groups)
 - Social impact: community access, data sovereignty, transparent audit

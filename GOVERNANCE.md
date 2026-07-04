@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-9499` is an OSS open-business blueprint for activities of other membership organizations not elsewhere classified (e.g. civic/social clubs, consumer organizations, environmental advocacy groups).
+`cloud-itonami-isic-9499` is an OSS open-business blueprint for activities of other membership organizations not elsewhere classified (e.g. civic/social clubs, consumer organizations, environmental advocacy groups).
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers
