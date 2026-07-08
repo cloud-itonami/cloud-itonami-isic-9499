@@ -35,3 +35,37 @@
 - every publication path is auditable
 - member data stays outside Git
 - emergency manual override paths remain outside LLM control
+- an unresolved tax-exempt-status risk, or a position whose own
+  recorded review has not stayed within its own recorded maximum
+  review interval, forces a hold, not an override
+- position publication is logged and escalated, and cannot be
+  published twice for the same position: a double-publication attempt
+  is held off this actor's own position facts alone, with no upstream
+  comparison needed
+
+## Membership Governance Governor: decision rule
+
+`blueprint.edn` fixes `:itonami.blueprint/governor` to `:membership-
+governance-governor` -- this is not a generic "review step," it is
+the one gate the ONE real-world act this business performs
+(publishing a real public position on the organization's behalf) must
+pass. The governor sits between the MemberOrgOps-LLM and execution,
+per the README's Core Contract:
+
+```text
+MemberOrgOps-LLM -> Membership Governance Governor -> hold, proceed, or human approval
+```
+
+**Approves**: routine membership-organization actions proposed
+against a position that already has a consented jurisdiction evidence
+checklist on file, satisfied required evidence, a resolved tax-
+exempt-status risk, and a review that stays within its own recorded
+maximum interval. These proceed straight to the position ledger.
+
+**Rejects or escalates**: the governor refuses to let the advisor
+publish a position on its own authority when any of the following
+hold -- a fabricated jurisdiction spec-basis; incomplete evidence; an
+unresolved tax-exempt-status risk; an overdue position review; a
+double-publication attempt. A clean publication proposal still always
+routes to a human -- `:actuation/publish-position` is never auto-
+committed, at any rollout phase.
