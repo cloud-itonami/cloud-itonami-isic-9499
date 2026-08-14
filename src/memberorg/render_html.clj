@@ -401,7 +401,7 @@
              (map (partial rule-row held-by) hard-rules)))
 
      (section
-      "Op gate (rollout phase &times; governor stakes)"
+      "Op gate (rollout phase × governor stakes)"
       (str "Derived at render time from " (code "memberorg.phase/phases") " and "
            (code "memberorg.governor/high-stakes") ". "
            (code ":actuation/publish-position") " is deliberately absent from every phase's "
