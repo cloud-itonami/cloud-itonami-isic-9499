@@ -35,7 +35,7 @@
   Usage: `clojure -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [memberorg.facts :as facts]
             [memberorg.governor :as governor]
             [memberorg.phase :as phase]
@@ -300,7 +300,7 @@
   approver key -- so if the store is later changed to keep approver
   attribution, this table self-corrects with no edit here."
   [db approvals]
-  (let [approver-key? (fn [k] (str/includes? (str/lower-case (kw-name k)) "approv"))
+  (let [approver-key? (fn [k] (str/includes? (str/lower (kw-name k)) "approv"))
         retained
         (fn [{:keys [op subject]}]
           (case op
