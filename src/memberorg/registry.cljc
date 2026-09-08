@@ -28,7 +28,7 @@
   an organization would keep, not the act of publishing the position
   itself (that is `memberorg.operation`'s `:actuation/publish-
   position`, always human-gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is
@@ -72,7 +72,7 @@
     (throw (ex-info "position-publication: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "position-publication: sequence must be >= 0" {})))
-  (let [publication-number (str (str/upper-case jurisdiction) "-POS-" (zero-pad sequence 6))
+  (let [publication-number (str (str/upper jurisdiction) "-POS-" (zero-pad sequence 6))
         record {"record_id" publication-number
                 "kind" "position-publication-draft"
                 "position_id" position-id
