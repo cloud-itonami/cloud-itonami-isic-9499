@@ -129,7 +129,7 @@ layers enforce this (`memberorg.governor`'s `:actuation/publish-
 position` high-stakes gate and `memberorg.phase`'s phase table, which
 never puts `:actuation/publish-position` in any phase's `:auto` set)
 -- see `memberorg.phase`'s docstring and
-`test/memberorg/phase_test.clj`'s
+`test/memberorg/phase_test.kotoba`'s
 `publish-position-never-auto-at-any-phase`. The actor may draft,
 check and recommend; a human governing-body officer is always the one
 who actually publishes a position. Matching `leasing`'s/
@@ -228,14 +228,14 @@ reference at all.
 
 | File | Role |
 |---|---|
-| `src/memberorg/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + position-publication history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded position, and the double-actuation guard checks a dedicated `:published?` boolean rather than a `:status` value |
-| `src/memberorg/registry.cljc` | Position-publication draft records, plus `position-review-overdue?` -- an HONEST reuse of `eldercare.registry/care-plan-review-overdue?`'s own periodic-review-overdue temporal shape (the 14th instance of this fleet's MAXIMUM-ceiling family overall), applied to advocacy-position review, not claimed as new |
-| `src/memberorg/facts.cljc` | Per-jurisdiction tax-exempt-status/political-activity-restriction catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/memberorg/memberorgopsllm.cljc` | **MemberOrgOps-LLM** -- `mock-advisor` ‖ `llm-advisor`; intake/jurisdiction-verification/tax-status-screening/publication proposals |
-| `src/memberorg/governor.cljc` | **Membership Governance Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · tax-exempt-status-risk-unresolved, unconditional evaluation, GENUINELY NEW, the 60th grounding of this discipline · position-review-overdue, MAXIMUM-ceiling reuse, the 14th instance, not claimed as new · already-published guard) + 1 soft (confidence/actuation gate) |
-| `src/memberorg/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (position publication always human; member intake is the ONLY auto-eligible op, no direct capital risk) |
-| `src/memberorg/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/memberorg/sim.cljc` | demo driver |
+| `src/memberorg/store.kotoba` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + position-publication history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded position, and the double-actuation guard checks a dedicated `:published?` boolean rather than a `:status` value |
+| `src/memberorg/registry.kotoba` | Position-publication draft records, plus `position-review-overdue?` -- an HONEST reuse of `eldercare.registry/care-plan-review-overdue?`'s own periodic-review-overdue temporal shape (the 14th instance of this fleet's MAXIMUM-ceiling family overall), applied to advocacy-position review, not claimed as new |
+| `src/memberorg/facts.kotoba` | Per-jurisdiction tax-exempt-status/political-activity-restriction catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/memberorg/memberorgopsllm.kotoba` | **MemberOrgOps-LLM** -- `mock-advisor` ‖ `llm-advisor`; intake/jurisdiction-verification/tax-status-screening/publication proposals |
+| `src/memberorg/governor.kotoba` | **Membership Governance Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · tax-exempt-status-risk-unresolved, unconditional evaluation, GENUINELY NEW, the 60th grounding of this discipline · position-review-overdue, MAXIMUM-ceiling reuse, the 14th instance, not claimed as new · already-published guard) + 1 soft (confidence/actuation gate) |
+| `src/memberorg/phase.kotoba` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (position publication always human; member intake is the ONLY auto-eligible op, no direct capital risk) |
+| `src/memberorg/operation.kotoba` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/memberorg/sim.kotoba` | demo driver |
 | `test/memberorg/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
