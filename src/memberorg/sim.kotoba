@@ -1,5 +1,5 @@
 (ns memberorg.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean position through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean position through
   intake -> jurisdiction verification -> tax-exempt-status-risk
   screening -> position-publication proposal (always escalates) ->
   human approval -> commit, then shows four HARD holds (a
